@@ -2,23 +2,23 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:ayamgepuk/database/database.dart';
 import 'package:intl/intl.dart';
-import 'menu/menu_screen.dart';
+import '../menu/menu_screen.dart';
 
-class EditBookingPage extends StatefulWidget {
+class AdminEditBookingScreen extends StatefulWidget {
   final Map<String, dynamic> booking;
   final Function(Map<String, dynamic>) onBookingUpdated;
 
-  const EditBookingPage({
+  const AdminEditBookingScreen({
     Key? key,
     required this.booking,
     required this.onBookingUpdated,
   }) : super(key: key);
 
   @override
-  State<EditBookingPage> createState() => _EditBookingPageState();
+  State<AdminEditBookingScreen> createState() => _AdminEditBookingScreenState();
 }
 
-class _EditBookingPageState extends State<EditBookingPage> {
+class _AdminEditBookingScreenState extends State<AdminEditBookingScreen> {
   late TextEditingController _bookIdController;
   late TextEditingController _userIdController;
   late TextEditingController _bookDateController;
@@ -148,7 +148,7 @@ class _EditBookingPageState extends State<EditBookingPage> {
           selectedItems: selectedItems,
           onOrderView: (updatedItems) {},
           onRemove: (id, price) {},
-          isForEditBooking: true, // Explicitly pass true here
+          isForEditBooking: true,
         ),
       ),
     );
@@ -172,7 +172,7 @@ class _EditBookingPageState extends State<EditBookingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Edit Booking')),
+      appBar: AppBar(title: const Text('Admin Edit Booking')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(

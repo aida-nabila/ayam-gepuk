@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:ayamgepuk/database/database.dart';
-import 'package:ayamgepuk/admin_booking_summary.dart';
+import 'package:ayamgepuk/screens/admin/admin_booking_summary.dart';
 import 'admin_edit_booking_screen.dart';
 
 class AdminPanelPage extends StatefulWidget {

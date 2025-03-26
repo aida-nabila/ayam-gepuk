@@ -1,5 +1,5 @@
 import 'package:ayamgepuk/screens/auth/sign_in_screen.dart';
-import 'package:ayamgepuk/screens/check_booking_screen.dart';
+import 'package:ayamgepuk/screens/manageBooking/check_booking_screen.dart';
 import 'package:ayamgepuk/screens/profile/components/password_change.dart';
 import 'package:ayamgepuk/screens/profile/components/profile_info_screen.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +86,8 @@ class Body extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => PasswordChangeScreen(
-                              userId: loggedInUserId, // Pass the user ID correctly
+                              userId:
+                                  loggedInUserId, // Pass the user ID correctly
                             ),
                           ),
                         );
@@ -100,10 +101,10 @@ class Body extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => CheckBookingScreen(userId: loggedInUserId),
+                            builder: (context) =>
+                                CheckBookingScreen(userId: loggedInUserId),
                           ),
                         );
-
                       },
                     ),
                     ProfileMenuCard(

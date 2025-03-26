@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../auth/sign_in_screen.dart';
-import '../booking_screen.dart';
-import '../discount.dart';
+import '../manageBooking/booking_screen.dart';
+import '../manageBooking/discount.dart';
 import 'components/order_item_card.dart';
 import 'components/price_row.dart';
 import 'components/total_price.dart';

@@ -1,9 +1,8 @@
+import 'package:ayamgepuk/screens/admin/admin_panel.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:ayamgepuk/screens/check_booking_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class BookingSummaryScreen extends StatelessWidget {
+class adminBookingSummary extends StatelessWidget {
   final int userId;
   final DateTime bookingDateTime;
   final String eventDate;
@@ -13,7 +12,7 @@ class BookingSummaryScreen extends StatelessWidget {
   final int numGuest;
   final int bookId;
 
-  const BookingSummaryScreen({
+  const adminBookingSummary({
     super.key,
     required this.userId,
     required this.bookingDateTime,
@@ -30,13 +29,13 @@ class BookingSummaryScreen extends StatelessWidget {
     return formatter.format(dateTime);
   }
 
-  Future<int?> _getLoggedInUserId() async {
-    final prefs = await SharedPreferences.getInstance();
-    return prefs.getInt('userId'); // Fetch the stored userId
-  }
-
   @override
   Widget build(BuildContext context) {
+    print("Booking ID: $bookId");
+    print("User ID: $userId");
+    print("Menu Package: $selectedMenu");
+    print("Total Price: $totalPrice");
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Booking Summary'),
@@ -55,11 +54,15 @@ class BookingSummaryScreen extends StatelessWidget {
             const SizedBox(height: 16.0),
             const Divider(),
             _buildDetailRow('Booking ID:', bookId.toString()),
-            _buildDetailRow('User  ID:', userId.toString()),
-            _buildDetailRow('Booking Date:', bookingDateTime.toLocal().toString().split(' ')[0]),
-            _buildDetailRow('Booking Time:', _formatTime(bookingDateTime.toLocal())),
-            _buildDetailRow('Event Date:', eventDate.isEmpty ? 'Unknown' : eventDate),
-            _buildDetailRow('Event Time:', eventTime.isEmpty ? 'Unknown' : eventTime),
+            _buildDetailRow('User ID:', userId.toString()),
+            _buildDetailRow('Booking Date:',
+                bookingDateTime.toLocal().toString().split(' ')[0]),
+            _buildDetailRow(
+                'Booking Time:', _formatTime(bookingDateTime.toLocal())),
+            _buildDetailRow(
+                'Event Date:', eventDate.isEmpty ? 'Unknown' : eventDate),
+            _buildDetailRow(
+                'Event Time:', eventTime.isEmpty ? 'Unknown' : eventTime),
             _buildDetailRow('Number of Guests:', numGuest.toString()),
             const Divider(),
             const SizedBox(height: 16.0),
@@ -95,16 +98,17 @@ class BookingSummaryScreen extends StatelessWidget {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                 Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => CheckBookingScreen(userId: userId),
-                          ),
-                        );
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AdminPanelPage(),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
-                  padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 24.0, vertical: 12.0),
                 ),
                 child: const Text(
                   'Done',

@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import '../database/database.dart';
-import '../entry_point.dart';
+import '../../database/database.dart';
+import '../../entry_point.dart';
 import 'booking_summary_screen.dart';
 import 'edit_booking_page.dart';
 

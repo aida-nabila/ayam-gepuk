@@ -4,7 +4,7 @@ import '../../components/welcome_text.dart';
 import '../../constants.dart';
 import 'sign_up_screen.dart';
 import 'components/sign_in_form.dart';
-import 'package:ayamgepuk/admin_login.dart';
+import 'package:ayamgepuk/screens/admin/admin_login.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});

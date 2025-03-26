@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'admin_panel.dart';
 import 'package:ayamgepuk/screens/auth/sign_in_screen.dart';
 
-import 'manage_users.dart';
+import '../manageUsers/manage_users.dart';
 
 const primaryColor = Color(0xFFEF5350);
 
